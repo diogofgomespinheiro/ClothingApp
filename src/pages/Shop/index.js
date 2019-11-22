@@ -1,7 +1,8 @@
+//Library Imports
 import React, { Component } from 'react';
 
 //Components imports
-import CollectionPrewview from "../../components/CollectionPreview/CollectionPreview";
+import CollectionPrewview from "../../components/CollectionPreview";
 
 //Dummy Data
 import SHOP_DATA from "../../dummy-data/shop.data";

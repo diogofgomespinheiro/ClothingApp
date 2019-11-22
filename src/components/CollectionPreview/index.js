@@ -2,10 +2,10 @@
 import React from 'react';
 
 //Component imports
-import CollectionItem from "../CollectionItem/CollectionItem";
+import CollectionItem from "../CollectionItem";
 
 //Style imports
-import "./CollectionPreview.scss";
+import "./styles.scss";
 
 const CollectionPreview = ({ title, items }) => {
   return (

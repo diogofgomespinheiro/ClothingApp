@@ -2,8 +2,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//Utilities Imports
+//import { auth } from "../../firebase/firebase";
+
 //Style Imports
-import "./Header.scss";
+import "./styles.scss";
 
 //Image Imports
 import {ReactComponent as Logo} from "../../assets/crown.svg";

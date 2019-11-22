@@ -2,7 +2,7 @@
 import React from "react";
 
 //Style imports
-import "./CollectionItem.scss";
+import "./styles.scss";
 
 const CollectionItem = ( { id, name, price, imageUrl } ) => {
   return (

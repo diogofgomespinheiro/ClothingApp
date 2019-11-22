@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 //Style Imports
-import "./MenuItem.scss";
+import "./styles.scss";
 
 const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => {
   return (
