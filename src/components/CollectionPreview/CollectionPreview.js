@@ -1,4 +1,8 @@
+//Library imports
 import React from 'react';
+
+//Component imports
+import CollectionItem from "../CollectionItem/CollectionItem";
 
 //Style imports
 import "./CollectionPreview.scss";
@@ -11,8 +15,8 @@ const CollectionPreview = ({ title, items }) => {
         {
           items
           .filter((item, index) => index < 4)
-          .map(item => (
-            <div key={item.id}>{item.name}</div>
+          .map(({ id, ...otherItemProps}) => (
+            <CollectionItem key={id} {...otherItemProps }/>
           ))
         }
       </div>
