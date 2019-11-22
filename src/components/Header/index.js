@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 //Utilities Imports
-//import { auth } from "../../firebase/firebase";
+import { auth } from "../../firebase/firebase";
 
 //Style Imports
 import "./styles.scss";
@@ -11,7 +11,7 @@ import "./styles.scss";
 //Image Imports
 import {ReactComponent as Logo} from "../../assets/crown.svg";
 
-const Header = () => {
+const Header = ({ currentUser }) => {
   return(
     <div className="header">
       <Link className="logo-container " to="/">
@@ -24,6 +24,12 @@ const Header = () => {
         <Link className="option" to="/shop">
           CONTACT
         </Link>
+        {
+          currentUser ?
+          <div className="option" onClick={() => auth.signOut()}>SIGN OUT</div>
+          :
+          <Link className="option" to="/auth">SIGN IN</Link>
+        }
       </div>
     </div>
   );
