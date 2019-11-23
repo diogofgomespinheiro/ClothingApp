@@ -9,7 +9,7 @@ import Header from "./components/Header";
 import Authentication from "./pages/Authentication";
 
 //Utilities Imports
-import { auth } from "./firebase/firebase";
+import { auth, createUserProfileDocument } from "./firebase/firebase";
 
 //Style Imports
 import "./App.css";
@@ -22,10 +22,21 @@ class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user })
-      console.log(user);
-    })
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser: {
+            id: snapShot.id,
+            ...snapShot.data()
+          }});
+        });
+      } else {
+        this.setState({ currentUser: null })
+      }
+    });
   }
 
   componentWillUnmount() {
