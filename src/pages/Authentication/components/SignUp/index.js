@@ -2,11 +2,11 @@
 import React, { Component } from "react";
 
 //Components Imports
-import FormInput from "../../components/FormInput";
-import CustomButton from "../../components/CustomButton";
+import FormInput from "../../../../components/FormInput";
+import CustomButton from "../../../../components/CustomButton";
 
 //Utilities Imports
-import { auth, createUserProfileDocument} from "../../firebase/firebase";
+import { auth, createUserProfileDocument} from "../../../../services/firebase/firebase";
 
 //Style Imports
 import "./styles.scss";

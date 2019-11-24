@@ -2,8 +2,8 @@
 import React from "react";
 
 //Components Imports
-import SignIn from "../../containers/SignIn";
-import SignUp from "../../containers/SignUp";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 
 //Style imports 
 import "./styles.scss";

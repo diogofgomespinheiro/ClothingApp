@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 //Utilities Imports
-import { auth } from "../../firebase/firebase";
+import { auth } from "../../services/firebase/firebase";
 
 //Style Imports
 import "./styles.scss";

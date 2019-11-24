@@ -9,7 +9,7 @@ import Header from "./components/Header";
 import Authentication from "./pages/Authentication";
 
 //Utilities Imports
-import { auth, createUserProfileDocument } from "./firebase/firebase";
+import { auth, createUserProfileDocument } from "./services/firebase/firebase";
 
 //Style Imports
 import "./App.css";

@@ -2,13 +2,13 @@
 import React, { Component } from "react";
 
 // Components Imports
-import MenuItem from "../../components/MenuItem";
+import MenuItem from "../../../../components/MenuItem";
 
 //Style Imports
 import "./styles.scss";
 
 //Dummy Data
-import SECTION_DATA from "../../dummy-data/sections.data";
+import SECTION_DATA from "../../../../utils/dummy-data/sections.data";
 
 class Directory extends Component {
   state = {

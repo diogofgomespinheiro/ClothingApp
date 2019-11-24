@@ -2,7 +2,7 @@
 import React from 'react';
 
 //Component imports
-import CollectionItem from "../CollectionItem";
+import CollectionItem from "../../../../components/CollectionItem";
 
 //Style imports
 import "./styles.scss";

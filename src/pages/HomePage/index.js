@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components Imports
-import Directory from "../../containers/Directory";
+import Directory from "./components/Directory";
 
 //Style Imports
 import "./styles.scss";
