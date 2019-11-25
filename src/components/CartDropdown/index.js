@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom";
 
+//Styles imports
+import "./styles.scss";
+
 //Components Imports
 import CustomButton from "../CustomButton";
 import CartItem from "../CartItem";
-
-//Styles imports
-import "./styles.scss";
 
 //Redux imports
 import { selectCartItems } from "../../store/modules/cart/selectors";

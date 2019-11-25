@@ -1,15 +1,15 @@
 //Library Imports
 import React, { Component } from "react";
 
+//Style Imports
+import "./styles.scss";
+
 //Components Imports
 import FormInput from "../../../../components/FormInput";
 import CustomButton from "../../../../components/CustomButton";
 
 //Utilities Imports
 import { auth, createUserProfileDocument} from "../../../../services/firebase/firebase";
-
-//Style Imports
-import "./styles.scss";
 
 class SignUp extends Component {
   state = {

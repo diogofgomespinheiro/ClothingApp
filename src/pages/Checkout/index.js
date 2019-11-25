@@ -3,11 +3,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-//Components imports
-import CheckoutItem from "./components/CheckoutItem";
-
 //Style imports
 import "./styles.scss";
+
+//Components imports
+import CheckoutItem from "./components/CheckoutItem";
 
 //Redux imports
 import { selectCartItems, selectCartTotal } from "../../store/modules/cart/selectors";

@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
+//Style Imports
+import "./styles.scss";
+
 //Components Imports
 import CartIcon from "../CartIcon";
 import CartDropdown from "../CartDropdown";
 
 //Utilities Imports
 import { auth } from "../../services/firebase/firebase";
-
-//Style Imports
-import "./styles.scss";
 
 //Image Imports
 import {ReactComponent as Logo} from "../../assets/crown.svg";

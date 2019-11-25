@@ -1,15 +1,15 @@
 //Library Imports
 import React, { Component } from "react";
 
+//Style imports
+import "./styles.scss";
+
 //Components Imports
 import FormInput from "../../../../components/FormInput";
 import CustomButton from "../../../../components/CustomButton";
 
 //Utilities Imports
 import { signInWithGoogle, auth } from "../../../../services/firebase/firebase";
-
-//Style imports
-import "./styles.scss";
 
 class SignIn extends Component {
   state = {

@@ -1,11 +1,11 @@
 //Library Imports
 import React, { Component } from "react";
 
-// Components Imports
-import MenuItem from "../../../../components/MenuItem";
-
 //Style Imports
 import "./styles.scss";
+
+// Components Imports
+import MenuItem from "../../../../components/MenuItem";
 
 //Dummy Data
 import SECTION_DATA from "../../../../utils/dummy-data/sections.data";

@@ -1,11 +1,11 @@
 //Library Imports
 import React from 'react';
 
-// Components Imports
-import Directory from "./components/Directory";
-
 //Style Imports
 import "./styles.scss";
+
+// Components Imports
+import Directory from "./components/Directory";
 
 const HomePage = () => {
   return (

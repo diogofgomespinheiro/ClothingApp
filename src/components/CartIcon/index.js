@@ -3,12 +3,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
+//Styles Imports
+import "./styles.scss";
+
+
 //Redux imports
 import { toggleCartHidden } from "../../store/modules/cart/actions";
 import { selectCartItemsCount } from "../../store/modules/cart/selectors";
-
-//Styles Imports
-import "./styles.scss";
 
 //Icon Imports
 import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";

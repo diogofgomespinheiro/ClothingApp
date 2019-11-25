@@ -2,14 +2,14 @@
 import React from "react";
 import { connect } from "react-redux";
 
+//Style imports
+import "./styles.scss";
+
 //Components imports
 import CustomButton from "../CustomButton";
 
 //Redux imports
 import { addItem } from "../../store/modules/cart/actions";
-
-//Style imports
-import "./styles.scss";
 
 const CollectionItem = ({ item, onAddItem }) => {
   const { name, price, imageUrl } = item;
