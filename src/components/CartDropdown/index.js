@@ -9,6 +9,9 @@ import CartItem from "../CartItem";
 //Styles imports
 import "./styles.scss";
 
+//Redux imports
+import { selectCartItems } from "../../store/modules/cart/selectors";
+
 const CartDropdown = ( { cartItems } ) => {
   return (
     <div className="cart-dropdown">
@@ -24,7 +27,7 @@ const CartDropdown = ( { cartItems } ) => {
 
 const mapStateToProps = state => {
   return {
-    cartItems: state.cart.cartItems
+    cartItems: selectCartItems(state)
   }
 }
 
