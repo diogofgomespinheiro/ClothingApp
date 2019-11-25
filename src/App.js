@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 //Components imports
 import HomePage from "./pages/HomePage";
@@ -17,13 +18,13 @@ import "./App.css";
 
 //Redux Imports
 import { setCurrentUser } from "./store/modules/user/actions";
+import { selectCurrentUser } from "./store/modules/user/selectors";
 
 class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
     const { onSetCurrentUser } = this.props;
-    console.log("Component Mount")
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -43,7 +44,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.currentUser);
     return (
       <div>
         <Header />
@@ -57,11 +57,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => {
-  return {
-    currentUser: user.currentUser
-  };
-}
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser
+});
 
 const mapDispatchToProps = dispatch => {
   return {
