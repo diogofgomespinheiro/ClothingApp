@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import Shop from "./pages/Shop";
 import Header from "./components/Header";
 import Authentication from "./pages/Authentication";
+import Checkout from "./pages/Checkout";
 
 //Utilities Imports
 import { auth, createUserProfileDocument } from "./services/firebase/firebase";
@@ -51,6 +52,8 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={Shop} />
           <Route exact path="/auth" render={() => this.props.currentUser ? <Redirect to="/" /> : <Authentication />} />
+          <Route exact path="/checkout" component={Checkout} />
+          <Redirect to="/" />
         </Switch>
       </div>
     );
