@@ -11,7 +11,7 @@ import Header from "./components/Header";
 import Authentication from "./pages/Authentication";
 import Checkout from "./pages/Checkout";
 
-//Utilities Imports
+//Services Imports
 import { auth, createUserProfileDocument } from "./services/firebase/firebase";
 
 //Style Imports
