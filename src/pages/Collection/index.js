@@ -7,6 +7,7 @@ import "./styles.scss";
 
 //Components imports
 import CollectionItem from "../../components/CollectionItem";
+import WithSpinner from "../../hoc/WithSpinner";
 
 //Redux imports
 import { selectCollection } from "../../store/modules/shop/selectors";
@@ -31,4 +32,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps)(Collection);
+export default connect(mapStateToProps)(WithSpinner(Collection));

@@ -15,6 +15,10 @@ import { updateCollections } from "../../store/modules/shop/actions";
 
 
 class Shop extends Component {
+  state = {
+    loading: true
+  }
+
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
@@ -24,6 +28,7 @@ class Shop extends Component {
     this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
       onUpdateCollections(collectionsMap);
+      this.setState({ loading: false });
     });
   }
 
@@ -32,8 +37,8 @@ class Shop extends Component {
 
     return (
       <div className="shop-page">
-        <Route exact path={`${match.path}`} component={CollectionsOverview} />
-        <Route path={`${match.path}/:collectionId`} component={Collection} />
+        <Route exact path={`${match.path}`} render={(props) => <CollectionsOverview isLoading={this.state.loading} {...props} />}/>
+        <Route path={`${match.path}/:collectionId`} render={(props) => <Collection isLoading={this.state.loading} {...props} />} />
       </div>
     );
   }
