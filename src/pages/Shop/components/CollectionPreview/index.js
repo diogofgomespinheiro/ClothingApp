@@ -9,7 +9,6 @@ import CollectionItem from "../../../../components/CollectionItem";
 import "./styles.scss";
 
 const CollectionPreview = ({ title, items, history, match, routeName }) => {
-  console.log(routeName);
   return (
     <div className="collection-preview">
       <h1 className="title" onClick={() => history.push(`${match.url}/${routeName}`)}>{title.toUpperCase()}</h1>
