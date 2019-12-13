@@ -10,14 +10,14 @@ import Collection from "../Collection";
 
 
 //Redux imports
-import { fetchCollections } from "../../store/modules/shop/actions";
+import { fetchCollectionsStart } from "../../store/modules/shop/actions";
 import { selectIsCollectionFetching } from "../../store/modules/shop/selectors";
 
 class Shop extends Component {
 
   componentDidMount() {
-    const { onFetchCollection } = this.props;
-    onFetchCollection();
+    const { onFetchCollectionStart } = this.props;
+    onFetchCollectionStart();
   }
 
   render() {
@@ -49,7 +49,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchCollection: () => dispatch(fetchCollections())
+    onFetchCollectionStart: () => dispatch(fetchCollectionsStart())
   };
 };
 
