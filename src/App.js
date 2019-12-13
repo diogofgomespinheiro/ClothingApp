@@ -1,5 +1,5 @@
 //Library Imports
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -18,40 +18,38 @@ import "./App.css";
 import { selectCurrentUser } from "./store/modules/user/selectors";
 import { checkUserSession } from "./store/modules/user/actions";
 
-class App extends Component {
-  unsubscribeFromAuth = null;
+const App = ({ onCheckUserSession, currentUser }) => {
 
-  componentDidMount() {
-    const { onCheckUserSession } = this.props;
+  useEffect(() => {
     onCheckUserSession();
-  }
+  }, [onCheckUserSession]);
 
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
-
-  render() {
-    return (
-      <div>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={Shop} />
-          <Route exact path="/auth" render={() => this.props.currentUser ? <Redirect to="/" /> : <Authentication />} />
-          <Route exact path="/checkout" component={Checkout} />
-          <Redirect to="/" />
-        </Switch>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/shop" component={Shop} />
+        <Route
+          exact
+          path="/auth"
+          render={() =>
+            currentUser ? <Redirect to="/" /> : <Authentication />
+          }
+        />
+        <Route exact path="/checkout" component={Checkout} />
+        <Redirect to="/" />
+      </Switch>
+    </div>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser
+  currentUser: selectCurrentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  onCheckUserSession: () => dispatch(checkUserSession()),
-})
+  onCheckUserSession: () => dispatch(checkUserSession())
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
