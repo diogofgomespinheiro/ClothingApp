@@ -12,7 +12,7 @@ import Authentication from "./pages/Authentication";
 import Checkout from "./pages/Checkout";
 
 //Style Imports
-import "./App.css";
+import "./App.scss";
 
 //Redux Imports
 import { selectCurrentUser } from "./store/modules/user/selectors";

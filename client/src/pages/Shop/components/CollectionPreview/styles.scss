@@ -10,7 +10,17 @@
   }
 
   .preview {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+  }
+
+  @media screen and (max-width: 800px) {
+    align-items: center;
+
+    .preview {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 15px;
+    }
   }
 }
