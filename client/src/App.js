@@ -1,15 +1,13 @@
 //Library Imports
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 //Components imports
-import HomePage from "./pages/HomePage";
-import Shop from "./pages/Shop";
 import Header from "./components/Header";
-import Authentication from "./pages/Authentication";
-import Checkout from "./pages/Checkout";
+import Spinner from "./components/Spinner";
+import ErrorBoundary from "./hoc/ErrorBoundary";
 
 //Style Imports
 import "./App.scss";
@@ -18,8 +16,12 @@ import "./App.scss";
 import { selectCurrentUser } from "./store/modules/user/selectors";
 import { checkUserSession } from "./store/modules/user/actions";
 
-const App = ({ onCheckUserSession, currentUser }) => {
+const HomePage = lazy(() => import("./pages/HomePage"));
+const Shop = lazy(() => import("./pages/Shop"));
+const Authentication = lazy(() => import("./pages/Authentication"));
+const Checkout = lazy(() => import("./pages/Checkout"));
 
+const App = ({ onCheckUserSession, currentUser }) => {
   useEffect(() => {
     onCheckUserSession();
   }, [onCheckUserSession]);
@@ -28,16 +30,20 @@ const App = ({ onCheckUserSession, currentUser }) => {
     <div>
       <Header />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/shop" component={Shop} />
-        <Route
-          exact
-          path="/auth"
-          render={() =>
-            currentUser ? <Redirect to="/" /> : <Authentication />
-          }
-        />
-        <Route exact path="/checkout" component={Checkout} />
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={Shop} />
+            <Route
+              exact
+              path="/auth"
+              render={() =>
+                currentUser ? <Redirect to="/" /> : <Authentication />
+              }
+            />
+            <Route exact path="/checkout" component={Checkout} />
+          </Suspense>
+        </ErrorBoundary>
         <Redirect to="/" />
       </Switch>
     </div>
